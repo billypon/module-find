@@ -23,3 +23,7 @@ it('parent && child', function () {
 it('child of parent', function () {
   assert.equal(cwd + 'dependency-parent/node_modules/dependency-child', find(['dependency-parent', 'dependency-child']));
 });
+
+it('undefine child', function () {
+  assert.equal(undefined, find(['dependency-parent', 'fake-child']));
+});

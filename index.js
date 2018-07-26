@@ -10,7 +10,7 @@ if (root === '/') {
   return console.error('can\'t find project root');
 }
 
-root += '/node_modules/';
+root += '/node_modules';
 
 function find() {
   var modules = [];
@@ -19,8 +19,8 @@ function find() {
     var module = path.dirname(root);
     for (var i in array) {
       var x = array[i];
-      module += '/node_modules/';
-      module = fs.existsSync(module + x) ? module + x :
+      module += '/node_modules';
+      module = fs.existsSync(module + '/' + x) ? module + '/' + x :
         module !== root ? path.resolve(module, '../..') : root;
       if (module === root) {
         module = undefined;
@@ -37,7 +37,8 @@ module.exports = function (value) {
     if (!value.endsWith('/')) {
       value += '/';
     }
-    root = value + 'node_modules/';
+    root = value + 'node_modules';
   }
+  console.log(root);
   return find;
 }
