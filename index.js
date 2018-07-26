@@ -1,7 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 
-var root = path.dirname(require.main.filename);
+var root = require.main ? path.dirname(require.main.filename) : process.cwd();
 while (root !== '/' && !fs.existsSync(root + '/node_modules')) {
   root = path.dirname(root);
 }
