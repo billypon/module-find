@@ -39,6 +39,5 @@ module.exports = function (value) {
     }
     root = value + 'node_modules';
   }
-  console.log(root);
   return find;
 }
