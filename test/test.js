@@ -1,9 +1,8 @@
 var assert = require('assert');
 var path = require('path');
 
-var cwd = process.cwd();
-var find = require('..')(cwd);
-cwd += '/node_modules/';
+var find = require('..')();
+var cwd = process.cwd() + '/node_modules/';
 
 it('undefined', function () {
   assert.equal(undefined, find('fake-module'));
